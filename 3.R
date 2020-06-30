@@ -5,8 +5,6 @@ library(dplyr)
 library(maps)
 library(RColorBrewer)
 
-setwd("~/Desktop/Data Science/Project 3")
-
 cnty = map_data("county")
 gusa = map_data("state")
 
@@ -23,7 +21,7 @@ cnty3$chci09a =cut(cnty3$chci09, breaks=qt1, labels=paste(qt1[-1]))
 
 state_layer=geom_polygon(aes(long,lat,group=group), fill=NA, data=gusa,color = "black") 
 
-pdf("Project03A.pdf")
+pdf("3A.pdf")
 
 ggplot(cnty3, aes(long,lat,group=group)) + 
   geom_polygon(aes(fill = chci09a), colour = rgb(1,1,1,0.2)) + coord_quickmap() +
